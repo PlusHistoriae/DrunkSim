@@ -1,18 +1,16 @@
 import matplotlib.pyplot as plt
 import random
 
-RUN_NUMBER = 30
 MAXIMUM_TURNS = 10000000
 
 steps = 10
 
 data = []
-
-for runs in range(RUN_NUMBER):
+for multiple_drinkers in range(30):    
   for turn in range(MAXIMUM_TURNS):
     steps_back_and_forth = random.randint (-4, 3) 
     steps = steps + steps_back_and_forth
-    
+    data.append(turn)
   
     if steps > 20:
       print ("Turn:" + str(turn))
@@ -23,7 +21,7 @@ for runs in range(RUN_NUMBER):
       print ("Turn:" + str(turn)) 
       print ("The Drinker has fallen off of a cliff")
       break
-  
-data.append(turn)
+
 plt.plot(data)
 plt.show()
+
